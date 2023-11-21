@@ -177,14 +177,24 @@ createApp({
         
     },
     methods: {
-        
+        //function to go through the array and get the recived messages only
+        receivedMessages(contact){
+            for (let i = 0; i < contact.messages.length; i++) {
+                if (contact.messages[i].status == "received") {
+                    return contact.messages[i].message;
+                }
+                
+            }
+
+
+        }
 
 
 
 
     },
     mounted() {
-
+    
 
     }
 }).mount('#app')

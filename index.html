@@ -21,16 +21,18 @@
             <div class="profile">Sofia</div>
             <div class="notification">Notification</div>
             <div class="search">Search</div>
-                <div class="all_chats">
-                    <div v-for="contact in contacts" :key="contact.name" class="chat">
-                      <img :src="contact.avatar" alt="">
-                      <div>
+
+
+            <div class="all_chats">
+                <div v-for="contact in contacts" class="chat">
+                    <img :src="contact.avatar" alt="">
+                    <div>
                         <span class="contact_name">{{ contact.name }}</span>
                         <span class="msg_time">12.00</span>
                         <p>Ultimo messaggio inviato</p>
-                      </div>
                     </div>
-                  </div>
+                </div>
+            </div>
         </div>
 
 
@@ -39,15 +41,20 @@
         <!-- Messages Section -->
         <div class="message_container">
             <div class="msg_cont_header"></div>
+
+            
+
             <div class="msg_cont_main">
                 <div class="received">
-                    <p class="msg_received">Message</p>
-                    <p class="msg_received">Message</p>
+                    <p v-for="contact in contacts" class="msg_received">{{receivedMessages(contact)}}</p>
                 </div>
                 <div class="sent">
                     <p class="msg_sent">Message</p>
                 </div>
             </div>
+
+
+
             <div class="msg_cont_footer"></div>
         </div>
 
