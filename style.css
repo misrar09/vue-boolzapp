@@ -28,12 +28,26 @@ body{
 
 }
 
+/* Contact Section */
+
 .contact_container{
     width: 35%;
     min-height: 45rem;
     background-color: rgb(19, 196, 196);
 }
 
+.chat{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+img{
+    height: 4rem;
+    border-radius: 50%;
+}
+
+/* Messages Section */
 .message_container{
     width: calc(100% - 35%);
     min-height: 45rem;
@@ -55,13 +69,32 @@ body{
     bottom: 0;
 }
 
-.chat{
+.received{
     display: flex;
-    align-items: center;
-    gap: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: end;
+    margin-right: 2rem;
 }
 
-img{
-    height: 4rem;
-    border-radius: 50%;
+.msg_received{
+    width: 15rem;
+    height: 3rem;
+    background-color: #d5f9ba;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.sent{
+    margin-top: 5rem;
+    margin-left: 2rem;
+}
+
+
+.msg_sent{
+    width: 15rem;
+    height: 3rem;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 1rem;
 }
