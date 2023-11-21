@@ -33,19 +33,38 @@ body{
 .contact_container{
     width: 35%;
     min-height: 45rem;
-    background-color: rgb(19, 196, 196);
+    background-color: white;
 }
 
+.all_chats{
+    padding: 0 1rem;
+}
+
+
 .chat{
-    display: flex;
+    display: flex; 
     align-items: center;
     gap: 1rem;
+    position: relative;
+    padding: 1rem 0;
+    border-top: 1px solid rgb(219, 216, 216);
+}
+
+.contact_name{
+    font-weight: bold;
+}
+.msg_time{
+    position: absolute;
+    right: 0rem;
+    
 }
 
 img{
-    height: 4rem;
+    height: 3rem;
     border-radius: 50%;
 }
+
+
 
 /* Messages Section */
 .message_container{
