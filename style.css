@@ -88,31 +88,31 @@ img{
     bottom: 0;
 }
 
-.received{
+.sent{
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
     align-items: end;
     margin-right: 2rem;
 }
 
-.msg_received{
-    width: 15rem;
-    height: 3rem;
+.msg_sent{
+    width: 18rem;
+    height: 2rem;
     background-color: #d5f9ba;
     padding: 0.5rem;
     border-radius: 1rem;
 }
 
-.sent{
+.received{
     margin-top: 5rem;
     margin-left: 2rem;
 }
 
 
-.msg_sent{
+.msg_received{
     width: 15rem;
-    height: 3rem;
+    height: 2rem;
     background-color: white;
     padding: 1rem;
     border-radius: 1rem;

@@ -45,11 +45,12 @@
             
 
             <div class="msg_cont_main">
-                <div class="received">
-                    <p v-for="contact in contacts" class="msg_received">{{receivedMessages(contact)}}</p>
+
+                <div v-for="contact in contacts" class="sent">
+                    <p v-for="(message, i) in sentMessages(contact)" class="msg_sent">{{message}}</p>
                 </div>
-                <div class="sent">
-                    <p class="msg_sent">Message</p>
+                <div class="received">
+                    <p class="msg_received">Message</p>
                 </div>
             </div>
 

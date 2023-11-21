@@ -167,25 +167,21 @@ createApp({
                     ],
                 }
             ],
-            
-            //contactImage: contacts[i].avatar,
-           // contactName: contacts[i].name,
-            x:null,
-
 
         }
         
     },
     methods: {
-        //function to go through the array and get the recived messages only
-        receivedMessages(contact){
+        //function to go through the array and get the sent messages only
+        sentMessages(contact){
+            const sentMsgs = [];
             for (let i = 0; i < contact.messages.length; i++) {
-                if (contact.messages[i].status == "received") {
-                    return contact.messages[i].message;
+                if (contact.messages[i].status == "sent") {
+                    sentMsgs.push(contact.messages[i].message) ;
                 }
-                
             }
 
+            return sentMsgs;
 
         }
 
