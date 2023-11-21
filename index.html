@@ -24,7 +24,7 @@
 
 
             <div class="all_chats">
-                <div v-for="contact in contacts" class="chat">
+                <div v-for="contact in contacts" class="chat" @click="selectContact(contact)">
                     <img :src="contact.avatar" alt="">
                     <div>
                         <span class="contact_name">{{ contact.name }}</span>
@@ -37,20 +37,18 @@
 
 
 
-
         <!-- Messages Section -->
         <div class="message_container">
             <div class="msg_cont_header"></div>
 
             
-
             <div class="msg_cont_main">
 
-                <div v-for="contact in contacts" class="sent">
-                    <p v-for="(message, i) in sentMessages(contact)" class="msg_sent">{{message}}</p>
+                <div class="sent">
+                    <p v-for="message in sentMessages(contact)" class="msg_sent">{{message}}</p>
                 </div>
                 <div class="received">
-                    <p class="msg_received">Message</p>
+                    <p v-for="message in receivedMessages(contact)" class="msg_received">{{message}}</p>
                 </div>
             </div>
 

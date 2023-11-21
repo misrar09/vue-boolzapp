@@ -65,7 +65,6 @@ img{
 }
 
 
-
 /* Messages Section */
 .message_container{
     width: calc(100% - 35%);
@@ -98,7 +97,7 @@ img{
 
 .msg_sent{
     width: 18rem;
-    height: 2rem;
+    height: 3rem;
     background-color: #d5f9ba;
     padding: 0.5rem;
     border-radius: 1rem;
@@ -112,8 +111,9 @@ img{
 
 .msg_received{
     width: 15rem;
-    height: 2rem;
+    height: 3rem;
     background-color: white;
-    padding: 1rem;
+    padding: 0.5rem;
     border-radius: 1rem;
+    margin-bottom: 1rem;
 }

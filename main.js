@@ -167,30 +167,50 @@ createApp({
                     ],
                 }
             ],
-
+            selectedContact: null,
         }
-        
+
     },
     methods: {
-        //function to go through the array and get the sent messages only
-        sentMessages(contact){
+
+        // Function to select a contact
+        selectContact(contact) {
+            this.selectedContact = contact;
+        },
+        
+        //Function to get sent messages for the selected contact
+        sentMessages() {
             const sentMsgs = [];
-            for (let i = 0; i < contact.messages.length; i++) {
-                if (contact.messages[i].status == "sent") {
-                    sentMsgs.push(contact.messages[i].message) ;
+            if (this.selectedContact) {
+                for (let i = 0; i < this.selectedContact.messages.length; i++) {
+                    const currentMessage = this.selectedContact.messages[i];
+                    if (currentMessage.status == "sent") {
+                        sentMsgs.push(currentMessage.message);
+                    }
                 }
             }
 
             return sentMsgs;
+        },
 
-        }
+        receivedMessages() {
+            const receivedMsgs = [];
+            if (this.selectedContact) {
+                for (let i = 0; i < this.selectedContact.messages.length; i++) {
+                    const currentMessage = this.selectedContact.messages[i];
+                    if (currentMessage.status == "received") {
+                        receivedMsgs.push(currentMessage.message);
+                    }
+                }
+            }
 
-
+            return receivedMsgs;
+        },
 
 
     },
     mounted() {
-    
+
 
     }
 }).mount('#app')
