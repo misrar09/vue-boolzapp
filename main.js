@@ -4,7 +4,7 @@ createApp({
     data() {
         return {
 
-            index: 0,
+            currentContact: 0,
 
             contacts: [
                 {
@@ -170,80 +170,97 @@ createApp({
                 }
             ],
 
-            
-          newMessageText: "",
-          newMessages: [],
-           
+            //New object to get the info of the contacts from select Contact Function
+            selectedContact: { 
+                name: '', 
+                avatar: '',
+                time: '',
+            },
+
+
+            newMessageText: "", 
+            newMessages: [], //created blank array to get the new messages
+            okInterval: null,
+            okMessage: "",
 
         }
 
     },
     methods: {
 
-
-
-        //Function to select a contact
-            selectContact(contact) {
-            this.index = contact;
+        // Function to select a contact
+        selectContact(contact) {
+            this.currentContact = contact;
+            this.selectedContact = {
+                name: this.contacts[contact].name,
+                avatar: this.contacts[contact].avatar,
+                time: this.contacts[contact].messages[0].date,
+            };
         },
         
 
-        
-        sendMessage(){
+        //function to write the new messages
+        sendMessage() {
             this.newMessages.push(this.newMessageText);
             this.newMessageText = "";
-            
+
+            clearInterval(this.okInterval)
+
+            this.okInterval = setInterval(() => {
+                this.okMessage = "OK"
+            }, 1000);
+
         },
 
-
-
-
-        
-
-        
-        //Function to get sent messages for the selected contact
-        // sentMessages() {
-        //     const sentMsgs = [];
-        //     if (this.selectedContact) {
-        //         for (let i = 0; i < this.selectedContact.messages.length; i++) {
-        //             const currentMessage = this.selectedContact.messages[i];
-        //             if (currentMessage.status == "sent") {
-        //                 sentMsgs.push(currentMessage.message);
-        //             }
-        //         }
-        //     }
-
-        //     return sentMsgs;
-        // },
-
-        // receivedMessages() {
-        //     const receivedMsgs = [];
-        //     if (this.selectedContact) {
-        //         for (let i = 0; i < this.selectedContact.messages.length; i++) {
-        //             const currentMessage = this.selectedContact.messages[i];
-        //             if (currentMessage.status == "received") {
-        //                 receivedMsgs.push(currentMessage.message);
-        //             }
-        //         }
-        //     }
-
-        //     return receivedMsgs;
-        // },
-
+        stopInterval() {
+            clearInterval(this.okInterval)
+        },
 
     },
+   
+
     mounted() {
+        
+    console.log('new message', this.newMessages);
+    /*      this.contacts[0].messages.forEach(msg => {
+             console.log(msg.message);
+         }); */
 
+         console.log('Selected Contact:', this.selectedContact);
 
-        console.log('Current index:', this.index);
-   /*      this.contacts[0].messages.forEach(msg => {
-            console.log(msg.message);
-        }); */
-
-    }
+}
 }).mount('#app')
 
 
 
 
 
+        
+            //Function to get sent messages for the selected contact
+            // sentMessages() {
+            //     const sentMsgs = [];
+            //     if (this.selectedContact) {
+            //         for (let i = 0; i < this.selectedContact.messages.length; i++) {
+            //             const currentMessage = this.selectedContact.messages[i];
+            //             if (currentMessage.status == "sent") {
+            //                 sentMsgs.push(currentMessage.message);
+            //             }
+            //         }
+            //     }
+        
+            //     return sentMsgs;
+            // },
+        
+            // receivedMessages() {
+            //     const receivedMsgs = [];
+            //     if (this.selectedContact) {
+            //         for (let i = 0; i < this.selectedContact.messages.length; i++) {
+            //             const currentMessage = this.selectedContact.messages[i];
+            //             if (currentMessage.status == "received") {
+            //                 receivedMsgs.push(currentMessage.message);
+            //             }
+            //         }
+            //     }
+        
+            //     return receivedMsgs;
+            // },

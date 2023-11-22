@@ -77,6 +77,11 @@ img{
     min-height: 3rem;
     min-width: 100%;
     background-color: #dbdbdb;
+    display: flex; 
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    padding: 1rem 0;
 }
 
 .msg_cont_footer{
