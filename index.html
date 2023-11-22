@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Vue Boolzapp</title>
 </head>
 
@@ -24,7 +25,7 @@
 
 
             <div class="all_chats">
-                <div v-for="contact in contacts" class="chat" @click="selectContact(contact)">
+                <div v-for="contact,index in contacts" class="chat" @click="selectContact(index)"  > 
                     <img :src="contact.avatar" alt="">
                     <div>
                         <span class="contact_name">{{ contact.name }}</span>
@@ -44,17 +45,32 @@
             
             <div class="msg_cont_main">
 
-                <div class="sent">
+                <div v-for="msg in contacts[index].messages" >
+                    <p v-if="msg.status == 'received'" class="msg_received"  >{{msg.message}} : {{msg.date}}</p>
+                    <p v-if="msg.status == 'sent'" class="msg_sent" >{{msg.message}} : {{msg.date}}</p>
+                </div>
+                
+                <div v-for="newMessage in newMessages">
+                    <p v-if="newMessages" class="msg_sent">{{newMessage}}</p>
+
+                </div>
+
+
+<!--                 <div class="sent">
                     <p v-for="message in sentMessages(contact)" class="msg_sent">{{message}}</p>
                 </div>
                 <div class="received">
                     <p v-for="message in receivedMessages(contact)" class="msg_received">{{message}}</p>
-                </div>
+                </div> -->
             </div>
 
 
 
-            <div class="msg_cont_footer"></div>
+            <div class="msg_cont_footer">
+                <i class="fa-regular fa-face-smile"></i>
+                <input v-model="newMessageText" type="text" placeholder="Write a message" @keyup.enter="sendMessage">
+                <i class="fa-solid fa-microphone"></i>
+            </div>
         </div>
 
 

@@ -87,13 +87,18 @@ img{
     bottom: 0;
 }
 
-.sent{
+
+
+
+
+/* .sent{
     display: flex;
     flex-direction: column;
     gap: 1rem;
     align-items: end;
     margin-right: 2rem;
-}
+} */
+
 
 .msg_sent{
     width: 18rem;
@@ -101,12 +106,15 @@ img{
     background-color: #d5f9ba;
     padding: 0.5rem;
     border-radius: 1rem;
+    position: relative;
+    left: 28rem;
+    margin: 1rem;
 }
 
-.received{
+/* .received{
     margin-top: 5rem;
     margin-left: 2rem;
-}
+} */
 
 
 .msg_received{
@@ -116,4 +124,30 @@ img{
     padding: 0.5rem;
     border-radius: 1rem;
     margin-bottom: 1rem;
+    position: relative;
+    left: 1rem;
+    margin: 1rem;
+}
+
+
+
+input{
+    width: 41rem;
+    height: 2rem;
+    border: none;
+    border-radius: 5px;
+    margin: 0.5rem 1.5rem;
+}
+
+.fa-face-smile{
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    color: rgb(160, 157, 157);
+
+}
+
+.fa-microphone{
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+    color: rgb(160, 157, 157);
 }

@@ -4,6 +4,8 @@ createApp({
     data() {
         return {
 
+            index: 0,
+
             contacts: [
                 {
                     name: 'Michele',
@@ -167,50 +169,76 @@ createApp({
                     ],
                 }
             ],
-            selectedContact: null,
+
+            
+          newMessageText: "",
+          newMessages: [],
+           
+
         }
 
     },
     methods: {
 
-        // Function to select a contact
-        selectContact(contact) {
-            this.selectedContact = contact;
+
+
+        //Function to select a contact
+            selectContact(contact) {
+            this.index = contact;
         },
         
+
+        
+        sendMessage(){
+            this.newMessages.push(this.newMessageText);
+            this.newMessageText = "";
+            
+        },
+
+
+
+
+        
+
+        
         //Function to get sent messages for the selected contact
-        sentMessages() {
-            const sentMsgs = [];
-            if (this.selectedContact) {
-                for (let i = 0; i < this.selectedContact.messages.length; i++) {
-                    const currentMessage = this.selectedContact.messages[i];
-                    if (currentMessage.status == "sent") {
-                        sentMsgs.push(currentMessage.message);
-                    }
-                }
-            }
+        // sentMessages() {
+        //     const sentMsgs = [];
+        //     if (this.selectedContact) {
+        //         for (let i = 0; i < this.selectedContact.messages.length; i++) {
+        //             const currentMessage = this.selectedContact.messages[i];
+        //             if (currentMessage.status == "sent") {
+        //                 sentMsgs.push(currentMessage.message);
+        //             }
+        //         }
+        //     }
 
-            return sentMsgs;
-        },
+        //     return sentMsgs;
+        // },
 
-        receivedMessages() {
-            const receivedMsgs = [];
-            if (this.selectedContact) {
-                for (let i = 0; i < this.selectedContact.messages.length; i++) {
-                    const currentMessage = this.selectedContact.messages[i];
-                    if (currentMessage.status == "received") {
-                        receivedMsgs.push(currentMessage.message);
-                    }
-                }
-            }
+        // receivedMessages() {
+        //     const receivedMsgs = [];
+        //     if (this.selectedContact) {
+        //         for (let i = 0; i < this.selectedContact.messages.length; i++) {
+        //             const currentMessage = this.selectedContact.messages[i];
+        //             if (currentMessage.status == "received") {
+        //                 receivedMsgs.push(currentMessage.message);
+        //             }
+        //         }
+        //     }
 
-            return receivedMsgs;
-        },
+        //     return receivedMsgs;
+        // },
 
 
     },
     mounted() {
 
+
+        console.log('Current index:', this.index);
+   /*      this.contacts[0].messages.forEach(msg => {
+            console.log(msg.message);
+        }); */
 
     }
 }).mount('#app')
