@@ -28,11 +28,77 @@ body{
 
 }
 
+.profile{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: #dbdbdb;
+}
+
+.profile_info{
+    width: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.profile_icons{
+    font-size: 1.5rem;
+    width: 9rem;
+    color: rgb(160, 157, 157);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.notification div p{
+    font-size: 0.95rem;
+    font-weight: lighter;
+    text-decoration: underline;
+}
+
+
+.notification{
+    background-color: #96d5fd;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    font-weight: bold;
+}
+
+.fa-bell-slash{
+    font-size: 1.5rem;
+    color: #96d5fd;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 50%;
+}
+
 /* Contact Section */
 
+.search{
+    background-color: #dbdbdb;
+    display: flex;
+    align-items: center;
+}
+
+.fa-magnifying-glass{
+    color: rgb(160, 157, 157);
+    background-color: white;
+    width: 10%;
+    
+    padding: 0.5rem 1rem;
+    margin-left: 0.15rem;
+
+}
+
 .search input{
-    width: 80%;
-    border: 1px solid black;
+    width: 88%;
+    margin: 0.5rem 0;
+    border-radius: 0;
+    
 }
 
 .contact_container{

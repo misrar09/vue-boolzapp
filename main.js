@@ -170,16 +170,20 @@ const vue = createApp({
                 }
             ],
 
+            myProfile:{
+                name: "Sofia",
+                avatar: './img/avatar_io.jpg',
+            },
+
             //New object to get the info of the contacts (message header) from select Contact Function
-            selectedContact: { 
-                name: '', 
+            selectedContact: {
+                name: '',
                 avatar: '',
                 time: '',
             },
 
-            newMessageText: "", 
-
-            searchContactText:"",
+            newMessageText: "",
+            searchContactText: "",
 
         }
 
@@ -195,7 +199,7 @@ const vue = createApp({
                 time: this.contacts[contact].messages[0].date,
             };
         },
-        
+
         //function to write the new messages
         sendMessage() {
             const activeContact = this.contacts[this.currentContact];
@@ -203,54 +207,51 @@ const vue = createApp({
             activeContact.messages.push({
                 status: 'sent',
                 message: this.newMessageText,
-                date: new Date().toLocaleString(), 
+                date: new Date().toLocaleString(),
             });
 
             console.log(this.contacts[this.currentContact]);
-    
+
             this.newMessageText = '';
 
             setTimeout(() => {
                 activeContact.messages.push({
                     status: 'received',
                     message: "OK",
-                    date: new Date().toLocaleString(), 
+                    date: new Date().toLocaleString(),
                 })
             }, 1000);
 
         },
 
-        searchContact(){
+        searchContact() {
 
-
-            
             for (let i = 0; i < this.contacts.length; i++) {
                 const contactName = this.contacts[i].name;
-                
-                
+
+
                 if (contactName.toLowerCase().includes(this.searchContactText.toLowerCase())) {
                     this.contacts[i].visible = true;
                 }
-                else{
+                else {
                     this.contacts[i].visible = false;
-                }              
-                
-                
+                }
+
                 console.log(contactName);
                 console.log(this.contacts[i].visible);
             }
-            
+
         }
 
     },
 
 
 
-   
+
 
     mounted() {
+        console.log(this.myProfile.avatar);
 
-
-}
+    }
 }).mount('#app')
 

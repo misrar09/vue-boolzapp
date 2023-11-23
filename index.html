@@ -20,16 +20,37 @@
 
         <!-- Contact Section -->
         <div class="contact_container">
-            <div class="profile">Sofia</div>
-            <div class="notification">Notification</div>
+            <div class="profile">
+                <div class="profile_info">
+                    <img :src="myProfile.avatar"alt="">
+                    <span class="user_name">{{myProfile.name}}</span>
+                </div>
+                <div class="profile_icons">
+                    <i class="fa-solid fa-circle-notch"></i>
+                    <i class="fa-solid fa-message"></i>
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </div>
+
+            </div>
+            <div class="notification">
+                <i class="fa-solid fa-bell-slash"></i>
+                <div>
+
+                    <span>Ricevi notifiche di nuovi messaggi</span>
+                    <p>Attiva notifiche desktop</p>
+                </div>
+
+            </div>
 
             <div class="search">
-                <input type="text" v-model="searchContactText" @keyup="searchContact()">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" v-model="searchContactText" @keyup="searchContact()" placeholder="Search Contact">
             </div>
 
             <!-- All contacts chat section -->
             <div class="all_chats">
-                <div v-for="(contact,index) in contacts" class="chat" v-show="contact.visible" @click="selectContact(index)">
+                <div v-for="(contact,index) in contacts" class="chat" v-show="contact.visible"
+                    @click="selectContact(index)">
                     <img :src="contact.avatar" alt="">
                     <div>
                         <span class="contact_name">{{ contact.name }}</span>
