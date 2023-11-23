@@ -22,11 +22,14 @@
         <div class="contact_container">
             <div class="profile">Sofia</div>
             <div class="notification">Notification</div>
-            <div class="search">Search</div>
+
+            <div class="search">
+                <input type="text" v-model="searchContactText" @keyup="searchContact()">
+            </div>
 
             <!-- All contacts chat section -->
             <div class="all_chats">
-                <div v-for="(contact,index) in contacts" class="chat" @click="selectContact(index)">
+                <div v-for="(contact,index) in contacts" class="chat" v-show="contact.visible" @click="selectContact(index)">
                     <img :src="contact.avatar" alt="">
                     <div>
                         <span class="contact_name">{{ contact.name }}</span>

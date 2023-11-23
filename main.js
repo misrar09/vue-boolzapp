@@ -1,6 +1,6 @@
 const { createApp } = Vue
 
-createApp({
+const vue = createApp({
     data() {
         return {
 
@@ -179,6 +179,8 @@ createApp({
 
             newMessageText: "", 
 
+            searchContactText:"",
+
         }
 
     },
@@ -217,7 +219,33 @@ createApp({
             }, 1000);
 
         },
+
+        searchContact(){
+
+
+            
+            for (let i = 0; i < this.contacts.length; i++) {
+                const contactName = this.contacts[i].name;
+                
+                
+                if (contactName.toLowerCase().includes(this.searchContactText.toLowerCase())) {
+                    this.contacts[i].visible = true;
+                }
+                else{
+                    this.contacts[i].visible = false;
+                }              
+                
+                
+                console.log(contactName);
+                console.log(this.contacts[i].visible);
+            }
+            
+        }
+
     },
+
+
+
    
 
     mounted() {

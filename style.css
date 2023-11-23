@@ -30,6 +30,11 @@ body{
 
 /* Contact Section */
 
+.search input{
+    width: 80%;
+    border: 1px solid black;
+}
+
 .contact_container{
     width: 35%;
     min-height: 45rem;
