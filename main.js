@@ -1,6 +1,6 @@
 const { createApp } = Vue
 
-const vue = createApp({
+createApp({
     data() {
         return {
 
@@ -209,11 +209,8 @@ const vue = createApp({
                 message: this.newMessageText,
                 date: new Date().toLocaleString(),
             });
-
             console.log(this.contacts[this.currentContact]);
-
             this.newMessageText = '';
-
             setTimeout(() => {
                 activeContact.messages.push({
                     status: 'received',
@@ -223,20 +220,17 @@ const vue = createApp({
             }, 1000);
 
         },
-
+        //Search Contact function to match the search text with names in the contacts array
         searchContact() {
 
             for (let i = 0; i < this.contacts.length; i++) {
                 const contactName = this.contacts[i].name;
-
-
                 if (contactName.toLowerCase().includes(this.searchContactText.toLowerCase())) {
                     this.contacts[i].visible = true;
                 }
                 else {
                     this.contacts[i].visible = false;
                 }
-
                 console.log(contactName);
                 console.log(this.contacts[i].visible);
             }
@@ -245,12 +239,8 @@ const vue = createApp({
 
     },
 
-
-
-
-
     mounted() {
-        console.log(this.myProfile.avatar);
+        
 
     }
 }).mount('#app')

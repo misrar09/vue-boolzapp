@@ -13,21 +13,25 @@ body{
     
 }
 
+/* Background Header */
 .bg_header{
     height: 15%;
     background-color: #009688;
 }
 
+/* Wrapper */
 .container{
     min-width: 75rem;
-    min-height: 45rem;
+    height: 45rem;
     position: absolute;
     top: 1.5rem;
-    left: 11.5%;
+    left: 50%;
     display: flex;
+    transform: translateX(-50%);
 
 }
 
+/* Profile Section */
 .profile{
     display: flex;
     justify-content: space-between;
@@ -52,12 +56,12 @@ body{
     justify-content: space-evenly;
 }
 
-.notification div p{
+/* Notification Section */
+.notification div a{
     font-size: 0.95rem;
     font-weight: lighter;
-    text-decoration: underline;
+    color: black;
 }
-
 
 .notification{
     background-color: #96d5fd;
@@ -76,8 +80,7 @@ body{
     border-radius: 50%;
 }
 
-/* Contact Section */
-
+/* <!-- Search Section --> */
 .search{
     background-color: #dbdbdb;
     display: flex;
@@ -88,29 +91,31 @@ body{
     color: rgb(160, 157, 157);
     background-color: white;
     width: 10%;
-    
     padding: 0.5rem 1rem;
     margin-left: 0.15rem;
-
+    
 }
 
 .search input{
-    width: 88%;
+    width: 89%;
     margin: 0.5rem 0;
     border-radius: 0;
     
 }
 
+/* Contact Section */
 .contact_container{
     width: 35%;
-    min-height: 45rem;
+    max-height: 45rem;
     background-color: white;
+    
 }
 
 .all_chats{
     padding: 0 1rem;
+    overflow-y: auto;
+    height: 30rem;
 }
-
 
 .chat{
     display: flex; 
@@ -124,6 +129,7 @@ body{
 .contact_name{
     font-weight: bold;
 }
+
 .msg_time{
     position: absolute;
     right: 0rem;
@@ -144,9 +150,10 @@ img{
     position: relative;
 }
 
+/* Contact info Section  */
 .msg_cont_header{
-    min-height: 3rem;
-    min-width: 100%;
+    max-height: 3rem;
+    width: 100%;
     background-color: #dbdbdb;
     display: flex; 
     align-items: center;
@@ -155,26 +162,22 @@ img{
     padding: 1rem 0;
 }
 
+/* Main messages section */
+
+.msg_cont_main{
+    height: calc(100% - 6rem);
+    overflow-y: auto;
+}
+
+/* Message Footer Section  */
+
 .msg_cont_footer{
-    min-height: 3rem;
-    min-width: 100%;
+    max-height: 3rem;
+    width: 100%;
     background-color: #f3eeea;
     position:absolute;
     bottom: 0;
 }
-
-
-
-
-
-/* .sent{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    align-items: end;
-    margin-right: 2rem;
-} */
-
 
 .msg_sent{
     width: 18rem;
@@ -186,12 +189,6 @@ img{
     left: 28rem;
     margin: 1rem;
 }
-
-/* .received{
-    margin-top: 5rem;
-    margin-left: 2rem;
-} */
-
 
 .msg_received{
     width: 15rem;
@@ -206,13 +203,13 @@ img{
 }
 
 
-
 input{
     width: 41rem;
     height: 2rem;
     border: none;
     border-radius: 5px;
     margin: 0.5rem 1.5rem;
+    font-size: 1rem;
 }
 
 .fa-face-smile{

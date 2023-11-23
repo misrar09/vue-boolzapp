@@ -20,6 +20,8 @@
 
         <!-- Contact Section -->
         <div class="contact_container">
+            
+            <!-- Profile Section -->
             <div class="profile">
                 <div class="profile_info">
                     <img :src="myProfile.avatar"alt="">
@@ -30,18 +32,18 @@
                     <i class="fa-solid fa-message"></i>
                     <i class="fa-solid fa-ellipsis-vertical"></i>
                 </div>
-
             </div>
+
+            <!-- Notification Section -->
             <div class="notification">
                 <i class="fa-solid fa-bell-slash"></i>
                 <div>
-
-                    <span>Ricevi notifiche di nuovi messaggi</span>
-                    <p>Attiva notifiche desktop</p>
+                    <p>Ricevi notifiche di nuovi messaggi</p>
+                    <a href="#">Attiva notifiche desktop</a>
                 </div>
-
             </div>
 
+            <!-- Search Section -->
             <div class="search">
                 <i class="fa-solid fa-magnifying-glass"></i>
                 <input type="text" v-model="searchContactText" @keyup="searchContact()" placeholder="Search Contact">
