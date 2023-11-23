@@ -11,6 +11,7 @@ createApp({
                     name: 'Michele',
                     avatar: './img/avatar_1.jpg',
                     visible: true,
+                    newMessages: [], //created blank array to get the new messages
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -33,6 +34,7 @@ createApp({
                     name: 'Fabio',
                     avatar: './img/avatar_2.jpg',
                     visible: true,
+                    newMessages: [], //created blank array to get the new messages
                     messages: [
                         {
                             date: '20/03/2020 16:30:00',
@@ -55,6 +57,7 @@ createApp({
                     name: 'Samuele',
                     avatar: './img/avatar_3.jpg',
                     visible: true,
+                    newMessages: [], //created blank array to get the new messages
                     messages: [
                         {
                             date: '28/03/2020 10:10:40',
@@ -77,6 +80,7 @@ createApp({
                     name: 'Alessandro B.',
                     avatar: './img/avatar_4.jpg',
                     visible: true,
+                    newMessages: [], //created blank array to get the new messages
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -94,6 +98,7 @@ createApp({
                     name: 'Alessandro L.',
                     avatar: './img/avatar_5.jpg',
                     visible: true,
+                    newMessages: [], //created blank array to get the new messages
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -111,6 +116,7 @@ createApp({
                     name: 'Claudia',
                     avatar: './img/avatar_6.jpg',
                     visible: true,
+                    newMessages: [], //created blank array to get the new messages
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -133,6 +139,7 @@ createApp({
                     name: 'Federico',
                     avatar: './img/avatar_7.jpg',
                     visible: true,
+                    newMessages: [], //created blank array to get the new messages
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -150,6 +157,7 @@ createApp({
                     name: 'Davide',
                     avatar: './img/avatar_8.jpg',
                     visible: true,
+                    newMessages: [], //created blank array to get the new messages
                     messages: [
                         {
                             date: '10/01/2020 15:30:55',
@@ -170,7 +178,7 @@ createApp({
                 }
             ],
 
-            //New object to get the info of the contacts from select Contact Function
+            //New object to get the info of the contacts (message header) from select Contact Function
             selectedContact: { 
                 name: '', 
                 avatar: '',
@@ -179,7 +187,7 @@ createApp({
 
 
             newMessageText: "", 
-            newMessages: [], //created blank array to get the new messages
+            
             okInterval: null,
             okMessage: "",
 
@@ -201,13 +209,21 @@ createApp({
 
         //function to write the new messages
         sendMessage() {
-            this.newMessages.push(this.newMessageText);
-            this.newMessageText = "";
-
-            clearInterval(this.okInterval)
-
+            const activeContact = this.contacts[this.currentContact];
+    
+            // Pushing a new message object with status, message, and date 
+            activeContact.newMessages.push({
+                status: 'sent',
+                message: this.newMessageText,
+                date: new Date().toLocaleString(), 
+            });
+    
+            this.newMessageText = '';
+    
+            clearInterval(this.okInterval);
+    
             this.okInterval = setInterval(() => {
-                this.okMessage = "OK"
+                this.okMessage = 'OK';
             }, 1000);
 
         },
@@ -221,12 +237,14 @@ createApp({
 
     mounted() {
         
-    console.log('new message', this.newMessages);
+    //console.log('new message', this.newMessages);
     /*      this.contacts[0].messages.forEach(msg => {
              console.log(msg.message);
          }); */
 
-         console.log('Selected Contact:', this.selectedContact);
+    //console.log('Selected Contact:', this.selectedContact);
+
+    
 
 }
 }).mount('#app')
