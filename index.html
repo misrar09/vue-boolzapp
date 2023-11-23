@@ -18,7 +18,6 @@
     <!-- Container + Vue -->
     <div id="app" class="container">
 
-
         <!-- Contact Section -->
         <div class="contact_container">
             <div class="profile">Sofia</div>
@@ -38,8 +37,6 @@
             </div>
         </div>
 
-
-
         <!-- Messages Section -->
         <div class="message_container">
 
@@ -58,14 +55,7 @@
                     <p v-if="msg.status == 'received'" class="msg_received">{{ msg.message }} : {{ msg.date }}</p>
                     <p v-if="msg.status == 'sent'" class="msg_sent">{{ msg.message }} : {{ msg.date }}</p>
                 </div>
-
-                <!-- New Message Section -->
-                <div v-for="newMessage in contacts[currentContact].newMessages">
-                    <p v-if="newMessage" class="msg_sent">{{ newMessage.message }} : {{ newMessage.date }}</p>
-                    <p v-if="okMessage && newMessage" class="msg_received">{{ okMessage }} : {{ newMessage.date }}</p>
-                </div>
             </div>
-
 
             <!-- Message Footer Section -->
             <div class="msg_cont_footer">
@@ -81,9 +71,3 @@
 </body>
 
 </html>
-<!--                 <div class="sent">
-                    <p v-for="message in sentMessages(contact)" class="msg_sent">{{message}}</p>
-                </div>
-                <div class="received">
-                    <p v-for="message in receivedMessages(contact)" class="msg_received">{{message}}</p>
-                </div> -->
