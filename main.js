@@ -190,7 +190,7 @@ createApp({
     },
     methods: {
 
-        // Function to select a contact
+        // Function to select a contact and cre
         selectContact(contact) {
             this.currentContact = contact;
             this.selectedContact = {
@@ -240,7 +240,7 @@ createApp({
     },
 
     mounted() {
-        
+        this.selectContact(0);
 
     }
 }).mount('#app')
