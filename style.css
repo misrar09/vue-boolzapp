@@ -152,7 +152,7 @@ img{
 
 /* Contact info Section  */
 .msg_cont_header{
-    max-height: 3rem;
+    max-height: 5rem;
     width: 100%;
     background-color: #dbdbdb;
     display: flex; 
@@ -165,7 +165,7 @@ img{
 /* Main messages section */
 
 .msg_cont_main{
-    height: calc(100% - 6rem);
+    height: calc(100% - 8rem);
     overflow-y: auto;
 }
 
@@ -191,7 +191,7 @@ img{
 }
 
 .msg_received{
-    width: 15rem;
+    width: 18rem;
     height: 3rem;
     background-color: white;
     padding: 0.5rem;
