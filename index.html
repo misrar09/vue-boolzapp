@@ -20,7 +20,7 @@
 
         <!-- Contact Section -->
         <div class="contact_container">
-            
+
             <!-- Profile Section -->
             <div class="profile">
                 <div class="profile_info">
@@ -71,15 +71,15 @@
                 <img :src="selectedContact.avatar" alt="">
                 <div>
                     <p class="contact_name">{{ selectedContact.name }}</p>
-                    <p class="msg_time">{{ selectedContact.time }}</p>
+                    <p>{{ selectedContact.time }}</p>
                 </div>
             </div>
 
             <!-- Main messages section -->
             <div class="msg_cont_main">
                 <div v-for="msg in contacts[currentContact].messages">
-                    <p v-if="msg.status == 'received'" class="msg_received">{{ msg.message }} : {{ msg.date }}</p>
-                    <p v-if="msg.status == 'sent'" class="msg_sent">{{ msg.message }} : {{ msg.date }}</p>
+                    <p v-if="msg.status == 'received'" class="msg_received">{{ msg.message + '\n' + msg.date }}</p>
+                    <p v-if="msg.status == 'sent'" class="msg_sent">{{ msg.message + '\n' + msg.date }}</p>
                 </div>
             </div>
 

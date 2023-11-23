@@ -190,7 +190,7 @@ createApp({
     },
     methods: {
 
-        // Function to select a contact and cre
+        // Function to select a contact and creat selectedContact to be used in message header
         selectContact(contact) {
             this.currentContact = contact;
             this.selectedContact = {
