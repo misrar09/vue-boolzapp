@@ -57,7 +57,7 @@
                     <div>
                         <span class="contact_name">{{ contact.name }}</span>
                         <span class="msg_time">12.00</span>
-                        <p>Ultimo messaggio inviato</p>
+                        <p class="last_msg">Ultimo messaggio inviato</p>
                     </div>
                 </div>
             </div>
@@ -71,15 +71,15 @@
                 <img :src="selectedContact.avatar" alt="">
                 <div>
                     <p class="contact_name">{{ selectedContact.name }}</p>
-                    <p>{{ selectedContact.time }}</p>
+                    <p class="contact_time">{{ selectedContact.time }}</p>
                 </div>
             </div>
 
             <!-- Main messages section -->
             <div class="msg_cont_main">
                 <div v-for="msg in contacts[currentContact].messages">
-                    <p v-if="msg.status == 'received'" class="msg_received">{{ msg.message + '\n' + msg.date }}</p>
-                    <p v-if="msg.status == 'sent'" class="msg_sent">{{ msg.message + '\n' + msg.date }}</p>
+                    <p v-if="msg.status == 'received'" class="msg_received">{{ msg.message + '\n' }} <span class="date">{{ msg.date }}</span> </p>
+                    <p v-if="msg.status == 'sent'" class="msg_sent">{{ msg.message + '\n'}} <span class="date">{{ msg.date }}</span> </p>
                 </div>
             </div>
 
